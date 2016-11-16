@@ -121,5 +121,10 @@
         </extensions>
     </build>
 
-
+<distributionManagement>
+  <repository>
+    <id>staging</id>
+    <url>http://nexus.fabric8.172.16.5.60.nip.io/content/repositories/staging</url>
+  </repository>
+</distributionManagement>
 </project>
