@@ -1,4 +1,4 @@
-package org.example;
+package cn.vpclub;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
