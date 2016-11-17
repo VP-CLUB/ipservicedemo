@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.vpclub.storage.mapper.SequencesMapper">
+    <resultMap id="BaseResultMap" type="cn.vpclub.api.domain.Sequences">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="seqtype" property="seqtype" jdbcType="INTEGER"/>
+        <result column="currentno" property="currentno" jdbcType="BIGINT"/>
+        <result column="digit" property="digit" jdbcType="INTEGER"/>
+        <result column="number_prefix" property="numberPrefix" jdbcType="INTEGER"/>
+        <result column="countnum" property="countnum" jdbcType="INTEGER"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        id, seqtype, currentno, digit, number_prefix, countnum, remark
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT <include refid="Base_Column_List"/>
+          FROM sequences
+         WHERE id = #{id, jdbcType=INTEGER}
+    </select>
+
+    <select id="selectAllData" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/> FROM sequences
+    </select>
+
+    <select id="selectBySeqType" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        SELECT <include refid="Base_Column_List"/>
+          FROM sequences t
+         WHERE t.seqtype = #{seqType, jdbcType=INTEGER}
+    </select>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        delete from sequences where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+    <insert id="insert" parameterType="cn.vpclub.api.domain.Sequences">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into sequences
+            (seqtype,
+             currentno,
+             digit,
+             number_prefix,
+             countnum,
+             remark)
+        values
+            (#{seqtype,jdbcType=INTEGER},
+             #{currentno,jdbcType=BIGINT},
+             #{digit,jdbcType=INTEGER},
+             #{numberPrefix,jdbcType=INTEGER},
+             #{countnum,jdbcType=INTEGER},
+             #{remark,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertSelective" parameterType="cn.vpclub.api.domain.Sequences">
+        <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into sequences
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="seqtype != null">
+                seqtype,
+            </if>
+            <if test="currentno != null">
+                currentno,
+            </if>
+            <if test="digit != null">
+                digit,
+            </if>
+            <if test="numberPrefix != null">
+                number_prefix,
+            </if>
+            <if test="countnum != null">
+                countnum,
+            </if>
+            <if test="remark != null">
+                remark,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="seqtype != null">
+                #{seqtype,jdbcType=INTEGER},
+            </if>
+            <if test="currentno != null">
+                #{currentno,jdbcType=BIGINT},
+            </if>
+            <if test="digit != null">
+                #{digit,jdbcType=INTEGER},
+            </if>
+            <if test="numberPrefix != null">
+                #{numberPrefix,jdbcType=INTEGER},
+            </if>
+            <if test="countnum != null">
+                #{countnum,jdbcType=INTEGER},
+            </if>
+            <if test="remark != null">
+                #{remark,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKey" parameterType="cn.vpclub.api.domain.Sequences">
+        UPDATE sequences
+            SET seqtype = #{seqtype, jdbcType=INTEGER},
+                currentno = #{currentno, jdbcType=BIGINT},
+                digit = #{digit, jdbcType=INTEGER},
+                number_prefix = #{numberPrefix, jdbcType=INTEGER},
+                countnum = #{countnum, jdbcType=INTEGER},
+                remark = #{remark, jdbcType=VARCHAR}
+         WHERE id = #{id, jdbcType=INTEGER}
+    </update>
+
+    <update id="updateNumberPrefix" parameterType="cn.vpclub.api.domain.Sequences">
+        UPDATE sequences
+            SET number_prefix = #{numberPrefix, jdbcType=INTEGER}
+         WHERE id = #{id, jdbcType=INTEGER}
+    </update>
+
+    <update id="updateDigitValue" parameterType="cn.vpclub.api.domain.Sequences">
+        UPDATE sequences
+           SET digit = #{digit, jdbcType=INTEGER}
+         WHERE id = #{id, jdbcType=INTEGER}
+    </update>
+
+    <update id="updateCurrentValue" parameterType="cn.vpclub.api.domain.Sequences">
+        UPDATE sequences
+           SET currentno = #{currentno, jdbcType=BIGINT},
+                countnum = #{countnum, jdbcType=INTEGER}
+         WHERE id = #{id, jdbcType=INTEGER}
+    </update>
+</mapper>
