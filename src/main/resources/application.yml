@@ -21,8 +21,9 @@ spring:
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
     # encrypt password
-    filters: config
-    connectionProperties: "config.decrypt=true"
+    filters: config,stat,wall,log4j
+    connectionProperties: "config.decrypt=true;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
+    useGlobalDataSourceStat: true
 
 
   data:
