@@ -48,7 +48,7 @@
             <version>1.0.4.RELEASE</version>
         </dependency>
 
-        <!-- add spring-cloud-zipkin -->
+         <!--add spring-cloud-zipkin-->
         <dependency>
             <groupId>io.fabric8</groupId>
             <artifactId>spring-cloud-starter-kubernetes-zipkin</artifactId>
@@ -148,7 +148,18 @@
             <artifactId>pagehelper</artifactId>
             <version>4.1.1</version>
         </dependency>
+        <dependency>
+            <groupId>javax</groupId>
+            <artifactId>javaee-api</artifactId>
+            <version>7.0</version>
+        </dependency>
         <!-- 数据库连接 end -->
+        <!-- common util -->
+        <dependency>
+            <groupId>cn.vpclub</groupId>
+            <artifactId>vp-common</artifactId>
+            <version>1.0.0</version>
+        </dependency>
 
     </dependencies>
 
