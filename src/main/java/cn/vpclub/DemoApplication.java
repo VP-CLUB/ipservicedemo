@@ -30,7 +30,7 @@ class IPAddressController {
 class IPAddress {
 
     private final long id;
-    private final String ipAddress;
+    private  String ipAddress;
     private  String message;
 
     public IPAddress(String msg,long id, String ipAddress) {

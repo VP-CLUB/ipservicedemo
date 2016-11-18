@@ -2,7 +2,7 @@
 spring:
   datasource:
     name: testdb
-    url: jdbc:mysql://172.16.45.3:3306/vp_common_config?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://172.16.45.3:3306/vp_common_config?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
     username: ipservice
     password: 'mQO7NpV1ohNjA37/xSIsNCIlVY4woR+zuAyeD3dBPpwcUX75gsZbvJftqhtpESDvItn6MUlJwrAAsi5+65fySQ=='
     # using druid data source
