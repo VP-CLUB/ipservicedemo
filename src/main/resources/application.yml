@@ -4,13 +4,13 @@ spring:
     name: testdb
     url: jdbc:mysql://172.16.45.3:3306/vp_common_config?useUnicode=true&characterEncoding=utf-8
     username: root
-    password: mQO7NpV1ohNjA37/xSIsNCIlVY4woR+zuAyeD3dBPpwcUX75gsZbvJftqhtpESDvItn6MUlJwrAAsi5+65fySQ==
+    password: 'mQO7NpV1ohNjA37/xSIsNCIlVY4woR+zuAyeD3dBPpwcUX75gsZbvJftqhtpESDvItn6MUlJwrAAsi5+65fySQ=='
     # using druid data source
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
     maxActive: 20
     initialSize: 1
-    maxWait: 60000
+    maxWait: 600000
     minIdle: 1
     timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 300000
@@ -24,7 +24,6 @@ spring:
     filters: config,stat,wall,log4j
     connectionProperties: "config.decrypt=true;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
     useGlobalDataSourceStat: true
-
 
   data:
     mongodb:
@@ -58,3 +57,8 @@ ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
 logging:
   level:
     tk.mybatis: DEBUG
+druid:
+  allow: ""
+  deny: "172.16.0.122"
+  loginUsername: vpclub
+  loginPassword: vpclub.pub
