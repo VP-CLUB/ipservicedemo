@@ -45,6 +45,7 @@ node {
     stage 'Canary Release'
     mavenCanaryRelease{
       version = canaryVersion
+      mvn fabric8:install -DskipTests
     }
 
     stage 'Integration Testing'
