@@ -49,11 +49,11 @@
         </dependency>
 
          <!--add spring-cloud-zipkin-->
-        <dependency>
-            <groupId>io.fabric8</groupId>
-            <artifactId>spring-cloud-starter-kubernetes-zipkin</artifactId>
-            <version>0.0.16</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>io.fabric8</groupId>-->
+            <!--<artifactId>spring-cloud-starter-kubernetes-zipkin</artifactId>-->
+            <!--<version>0.0.16</version>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-commons</artifactId>
