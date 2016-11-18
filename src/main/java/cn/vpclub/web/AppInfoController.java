@@ -1,6 +1,5 @@
 package cn.vpclub.web;
 
-
 import cn.vpclub.api.AppInfoService;
 import cn.vpclub.api.domain.AppInfo;
 import cn.vpclub.api.domain.BaseAppInfo;
@@ -14,11 +13,14 @@ import cn.vpclub.common.utils.MapParserUtil;
 import cn.vpclub.common.utils.StringUtil;
 import cn.vpclub.web.base.BaseController;
 
+import com.alibaba.druid.support.http.util.IPAddress;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.core.Context;
+import java.net.InetAddress;
 import java.util.List;
 import java.util.Map;
 
@@ -28,10 +30,16 @@ import java.util.Map;
 @RestController
 @RequestMapping("/common/appInfo")
 public class AppInfoController extends BaseController {
+    private int counter;
+    @Value("${ipservice.message}")
+    private String message;
     @Autowired
     private AppInfoService appInfoService;
 
-
+    @RequestMapping(value = "/ip", method = RequestMethod.GET)
+    public String ipaddress() throws Exception {
+        return message+ "---"+InetAddress.getLocalHost().getHostAddress()+"--"+(++counter);
+    }
     /**
      * 根据主键ID删除外部应用系统信息
      *
