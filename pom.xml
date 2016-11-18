@@ -4,11 +4,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.vpclub</groupId>
-    <artifactId>ipservice</artifactId>
+    <artifactId>ipservicedemo</artifactId>
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>ipservice</name>
+    <name>ipservicedemo</name>
     <description>ipservice project for Spring Boot</description>
 
     <parent>
