@@ -17,7 +17,7 @@ def versionPrefix = ""
 try {
   versionPrefix = VERSION_PREFIX
 } catch (Throwable e) {
-  versionPrefix = "1.2"
+  versionPrefix = "1.0"
 }
 
 def canaryVersion = "${versionPrefix}.${env.BUILD_NUMBER}"
@@ -33,14 +33,14 @@ node {
 
   echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
   kubernetes.pod('buildpod').withImage('fabric8/maven-builder')
-      .withPrivileged(true)
-      .withHostPathMount('/var/run/docker.sock','/var/run/docker.sock')
-      .withEnvVar('DOCKER_CONFIG','/home/jenkins/.docker/')
-      .withEnvVar('KUBERNETES_MASTER','kubernetes.default')
-      .withSecret('jenkins-docker-cfg','/home/jenkins/.docker')
-      .withSecret('jenkins-maven-settings','/root/.m2')
-      .withServiceAccount('jenkins')
-      .inside {
+          .withPrivileged(true)
+          .withHostPathMount('/var/run/docker.sock','/var/run/docker.sock')
+          .withEnvVar('DOCKER_CONFIG','/home/jenkins/.docker/')
+          .withEnvVar('KUBERNETES_MASTER','kubernetes.default')
+          .withSecret('jenkins-docker-cfg','/home/jenkins/.docker')
+          .withSecret('jenkins-maven-settings','/root/.m2')
+          .withServiceAccount('jenkins')
+          .inside {
 
     stage 'Canary Release'
     mavenCanaryRelease{
