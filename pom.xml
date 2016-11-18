@@ -5,7 +5,7 @@
 
     <groupId>cn.vpclub</groupId>
     <artifactId>ipservice</artifactId>
-    <version>1.2.0</version>
+    <version>1.2.33</version>
     <packaging>jar</packaging>
 
     <name>ipservice</name>
