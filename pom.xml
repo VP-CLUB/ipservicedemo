@@ -159,7 +159,7 @@
             <groupId>cn.vpclub</groupId>
             <artifactId>vp-common</artifactId>
             <version>1.0.0</version>
-            <type>pom</type>
+            <!--<type>pom</type>-->
         </dependency>
 
     </dependencies>
