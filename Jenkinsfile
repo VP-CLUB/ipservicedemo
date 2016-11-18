@@ -48,11 +48,11 @@ node {
     }
 
     stage 'Integration Testing'
-//    mavenIntegrationTest{
-//      environment = 'Testing'
-//      failIfNoTests = localFailIfNoTests
-//      itestPattern = localItestPattern
-//    }
+    mavenIntegrationTest{
+      environment = 'Testing'
+      failIfNoTests = localFailIfNoTests
+      itestPattern = localItestPattern
+    }
 
     stage 'Rolling Upgrade Staging'
     kubernetesApply(environment: envStage)
