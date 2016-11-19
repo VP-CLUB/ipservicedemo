@@ -2,7 +2,7 @@
 spring:
   datasource:
     name: testdb
-    url: jdbc:mysql://172.16.45.3:3306/vp_common_config?useUnicode=true&characterEncoding=utf-8&autoReconnect=true&failOverReadOnly=false
+    url: jdbc:mysql://172.16.45.3:3306/vp_common_config?useUnicode=true&characterEncoding=utf-8
     username: ipservice
     password: 'mQO7NpV1ohNjA37/xSIsNCIlVY4woR+zuAyeD3dBPpwcUX75gsZbvJftqhtpESDvItn6MUlJwrAAsi5+65fySQ=='
     # using druid data source
@@ -10,10 +10,10 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     maxActive: 20
     initialSize: 1
-    maxWait: 600000
+    maxWait: 6000
     minIdle: 1
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
+    timeBetweenEvictionRunsMillis: 6000
+    minEvictableIdleTimeMillis: 3000
     validationQuery: select 'x'
     testWhileIdle: true
     testOnBorrow: false
@@ -35,7 +35,7 @@ spring:
     host: 172.16.45.3
 #    password: 'traffic.prod'
     port: 6379
-    timeout: 3000000
+    timeout: 30000
     pool:
       max-idle: 8
       min-idle: 0
