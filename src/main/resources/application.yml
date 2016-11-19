@@ -16,7 +16,7 @@ spring:
     minEvictableIdleTimeMillis: 3000
     validationQuery: select 'x'
     testWhileIdle: true
-    testOnBorrow: false
+    testOnBorrow: true
     testOnReturn: false
     poolPreparedStatements: true
     maxOpenPreparedStatements: 20
