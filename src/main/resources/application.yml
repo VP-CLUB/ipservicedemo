@@ -47,7 +47,7 @@ spring:
     encoding.enable: true
     encoding.force: true
 
-spring.application.name: ipservice
+spring.application.name: ipservicedemo
 spring.sleuth.sampler.percentage: 1.0
 ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
 
