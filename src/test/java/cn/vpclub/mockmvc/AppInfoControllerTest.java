@@ -49,5 +49,4 @@ public class AppInfoControllerTest extends BaseMockMvcTest {
     }
 
 
-
 }

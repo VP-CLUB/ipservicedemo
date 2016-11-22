@@ -46,11 +46,9 @@ spring:
     encoding.charset: UTF-8
     encoding.enable: true
     encoding.force: true
-  cache:
-    type: redis
+
 spring.application.name: ipservice
 spring.sleuth.sampler.percentage: 1.0
-#spring.sleuth.integration.enabled: false
 ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
 
 # LOGGING

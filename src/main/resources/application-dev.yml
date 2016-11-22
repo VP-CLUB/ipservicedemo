@@ -1,0 +1,25 @@
+# application properties
+spring:
+  datasource:
+    name: testdb
+    url: jdbc:mysql://172.16.5.23:3306/vp_common_config?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 'mQO7NpV1ohNjA37/xSIsNCIlVY4woR+zuAyeD3dBPpwcUX75gsZbvJftqhtpESDvItn6MUlJwrAAsi5+65fySQ=='
+
+  data:
+    mongodb:
+      host: 172.16.45.3
+      port: 27017
+
+  redis:
+    database: 0
+    host: 172.16.45.3
+#    password: 'traffic.prod'
+    port: 6379
+    timeout: 30000
+
+spring.sleuth.sampler.percentage: 1.0
+
+#dev mode disable zipkin
+spring.cloud.kubernetes.zipkin.discovery.enabled: false
+ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
