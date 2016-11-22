@@ -17,8 +17,8 @@ import java.util.Properties;
 /**
  * Created by vpclub on 16-3-22.
  */
-@Configuration
-@EnableTransactionManagement
+//@Configuration
+//@EnableTransactionManagement
 public class TransactionManagementConfiguration {
     @Bean(name = "userTransactionServiceImp")
     public UserTransactionServiceImp userTransactionServiceImp() {

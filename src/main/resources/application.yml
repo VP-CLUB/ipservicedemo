@@ -55,11 +55,11 @@ ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
 logging:
   level:
     tk.mybatis: DEBUG
-druid:
-  allow: ""
-  deny: "172.16.0.122"
-  loginUsername: vpclub
-  loginPassword: vpclub.pub
+#druid:
+#  allow: ""
+#  deny: "172.16.0.122"
+#  loginUsername: vpclub
+#  loginPassword: vpclub.pub
 cors:
   mappings: /**
   allowedOrigins:

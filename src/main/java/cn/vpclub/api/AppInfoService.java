@@ -16,16 +16,6 @@ import java.util.List;
  */
 public interface AppInfoService {
     /**
-     * 保存应用系统信息
-     *
-     * @param dataInfo
-     * @return BaseResponse
-     */
-    public default BaseResponse<AppInfo> saveDataInfo(AppInfo dataInfo) {
-        return null;
-    }
-
-    /**
      * 根据应用系统ID删除应用系统信息
      *
      * @param key 应用系统ID

@@ -8,12 +8,16 @@ target/
 .project
 .settings
 .springBeans
-
+logs
+*.log
+.sonar
+*.epoch
 ### IntelliJ IDEA ###
 .idea
 *.iws
 *.iml
 *.ipr
+
 
 ### NetBeans ###
 nbproject/private/

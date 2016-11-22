@@ -9,12 +9,12 @@
     <packaging>jar</packaging>
 
     <name>ipservicedemo</name>
-    <description>ipservice project for Spring Boot</description>
+    <description>ipservicedemo project</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>1.3.3.RELEASE</version>
+        <version>1.3.8.RELEASE</version>
         <!-- lookup parent from repository -->
     </parent>
 
@@ -48,7 +48,7 @@
             <version>1.0.4.RELEASE</version>
         </dependency>
 
-         <!--add spring-cloud-zipkin-->
+        <!--add spring-cloud-zipkin-->
         <dependency>
             <groupId>io.fabric8</groupId>
             <artifactId>spring-cloud-starter-kubernetes-zipkin</artifactId>
@@ -69,11 +69,7 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-            <scope>test</scope>
-        </dependency>
+
         <!-- redis cache -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -90,70 +86,18 @@
             <artifactId>spring-boot-starter-jta-atomikos</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>cn.vpclub</groupId>
+            <artifactId>spring-boot-starter-mybatis</artifactId>
+            <version>1.0.0</version>
+        </dependency>
         <!-- mongodb dbLink -->
         <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>-->
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-tx</artifactId>
-            <version>4.2.5.RELEASE</version>
-        </dependency>
-
         <!-- 数据库连接 start -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-            <version>4.2.4.RELEASE</version>
-        </dependency>
 
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.40</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.zaxxer</groupId>
-            <artifactId>HikariCP-java6</artifactId>
-            <version>2.2.5</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid</artifactId>
-            <version>1.0.26</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis</artifactId>
-            <version>3.3.0</version>
-        </dependency>
-        <dependency>
-            <groupId>org.mybatis</groupId>
-            <artifactId>mybatis-spring</artifactId>
-            <version>1.2.2</version>
-        </dependency>
-        <!--通用Mapper-->
-        <dependency>
-            <groupId>tk.mybatis</groupId>
-            <artifactId>mapper</artifactId>
-            <version>3.3.2</version>
-        </dependency>
-        <!--Mybatis分页插件-->
-        <dependency>
-            <groupId>com.github.pagehelper</groupId>
-            <artifactId>pagehelper</artifactId>
-            <version>4.1.1</version>
-        </dependency>
-        <dependency>
-            <groupId>javax</groupId>
-            <artifactId>javaee-api</artifactId>
-            <version>7.0</version>
-        </dependency>
         <!-- 数据库连接 end -->
         <!-- common util -->
         <dependency>
@@ -162,7 +106,12 @@
             <version>1.0.3</version>
             <!--<type>pom</type>-->
         </dependency>
-
+        <!-- test -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
     </dependencies>
 
     <reporting>
@@ -210,13 +159,13 @@
     </build>
 
     <!--<distributionManagement>-->
-        <!--<repository>-->
-            <!--<id>staging</id>-->
-            <!--<url>http://nexus.fabric8.172.16.5.60.nip.io/content/repositories/staging</url>-->
-        <!--</repository>-->
-        <!--&lt;!&ndash;<site>&ndash;&gt;-->
-            <!--&lt;!&ndash;<id>website</id>&ndash;&gt;-->
-            <!--&lt;!&ndash;<url>dav:http://content-repository/sites/${project.groupId}/${project.artifactId}/${project.version}</url>&ndash;&gt;-->
-        <!--&lt;!&ndash;</site>&ndash;&gt;-->
+    <!--<repository>-->
+    <!--<id>staging</id>-->
+    <!--<url>http://nexus.fabric8.172.16.5.60.nip.io/content/repositories/staging</url>-->
+    <!--</repository>-->
+    <!--&lt;!&ndash;<site>&ndash;&gt;-->
+    <!--&lt;!&ndash;<id>website</id>&ndash;&gt;-->
+    <!--&lt;!&ndash;<url>dav:http://content-repository/sites/${project.groupId}/${project.artifactId}/${project.version}</url>&ndash;&gt;-->
+    <!--&lt;!&ndash;</site>&ndash;&gt;-->
     <!--</distributionManagement>-->
 </project>

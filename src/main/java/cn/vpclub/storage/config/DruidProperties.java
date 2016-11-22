@@ -15,10 +15,10 @@ import org.springframework.stereotype.Component;
 @ConfigurationProperties(prefix = "druid")
 public class DruidProperties {
 
-    private String allow;
-    private String deny;
-    private String loginUsername;
-    private String loginPassword;
+    private String allow = "";
+    private String deny = "";
+    private String loginUsername = "vpclub";
+    private String loginPassword = "vpclub.pub";
 
     public String getAllow() {
         return allow;

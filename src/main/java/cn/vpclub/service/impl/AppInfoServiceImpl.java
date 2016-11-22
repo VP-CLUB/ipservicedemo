@@ -136,7 +136,6 @@ public class AppInfoServiceImpl implements AppInfoService {
      * @param appId 系统编号(appId)
      * @return AppInfo
      */
-    @Override
     public AppInfo findDataInfoByAppId(Long appId) {
         logger.info("findDataInfoByAppId method param data: " + appId);
         AppInfo dataInfo = null;
