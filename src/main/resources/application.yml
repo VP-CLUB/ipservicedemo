@@ -10,9 +10,9 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     maxActive: 20
     initialSize: 1
-    maxWait: 6000
+    maxWait: 28800
     minIdle: 1
-    timeBetweenEvictionRunsMillis: 6000
+    timeBetweenEvictionRunsMillis: 60000
     minEvictableIdleTimeMillis: 3000
     validationQuery: select 'x'
     testWhileIdle: true
