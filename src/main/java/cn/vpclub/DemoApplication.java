@@ -15,7 +15,9 @@ public class DemoApplication {
 
     public static void main(String[] args) throws Exception{
         SpringApplication.run(DemoApplication.class, args);
-        System.out.println("args = [" + ConfigTools.encrypt("@vpclubdev").trim() + "]");
+        String pwd = "@vpclubdev";
+        System.out.println("encrypt = [" + ConfigTools.encrypt(pwd).trim() + "]");
+        System.out.println("decrypt = [" + ConfigTools.decrypt(pwd).trim() + "]");
     }
 
 
