@@ -43,6 +43,7 @@ mybatis:
   mapper-locations : "classpath:mapper/*Mapper.xml"
 
 hazelcast:
+  enabled: false
   cluster: true
   servers:
     - 172.16.5.40:5701
