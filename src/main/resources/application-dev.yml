@@ -19,7 +19,11 @@ spring:
     timeout: 30000
 
 hazelcast:
-  enabled: false
+  enabled: true
+  cluster: true
+  servers:
+    -  hazelcast.hazelcast-cluster.172.16.5.60.nip.io
+
 spring.sleuth.sampler.percentage: 1.0
 
 #dev mode disable zipkin
