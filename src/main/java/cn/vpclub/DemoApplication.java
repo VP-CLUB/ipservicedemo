@@ -1,5 +1,6 @@
 package cn.vpclub;
 
+import com.alibaba.druid.filter.config.ConfigTools;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -12,9 +13,12 @@ import java.net.InetAddress;
 @SpringBootApplication
 public class DemoApplication {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception{
         SpringApplication.run(DemoApplication.class, args);
+        System.out.println("args = [" + ConfigTools.encrypt("@vpclubdev").trim() + "]");
     }
+
+
 }
 
 @RestController

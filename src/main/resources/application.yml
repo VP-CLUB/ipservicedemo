@@ -1,3 +1,5 @@
+spring.application.name: ipservicedemo
+spring.sleuth.sampler.percentage: 1.0
 # application properties
 spring:
   datasource:
@@ -30,25 +32,21 @@ spring:
       host: 172.16.45.3
       port: 27017
 
-  redis:
-    database: 0
-    host: 172.16.45.3
-#    password: 'traffic.prod'
-    port: 6379
-    timeout: 30000
-    pool:
-      max-idle: 8
-      min-idle: 0
-      max-active: 8
-      max-wait: -1
-
   http:
     encoding.charset: UTF-8
     encoding.enable: true
     encoding.force: true
 
-spring.application.name: ipservicedemo
-spring.sleuth.sampler.percentage: 1.0
+mybatis:
+  config-location : "classpath:mybatis-config.xml"
+  #checkConfig-location : false
+  mapper-locations : "classpath:mapper/*Mapper.xml"
+
+hazelcast:
+  cluster: true
+  servers:
+    - 172.16.5.40:5701
+
 ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
 
 # LOGGING

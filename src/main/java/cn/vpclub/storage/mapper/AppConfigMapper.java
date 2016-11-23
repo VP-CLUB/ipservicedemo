@@ -1,10 +1,11 @@
 package cn.vpclub.storage.mapper;
 
 import cn.vpclub.api.domain.AppConfig;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
+@Mapper
 public interface AppConfigMapper {
 
     /**

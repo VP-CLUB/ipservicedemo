@@ -6,7 +6,7 @@
 
     <!-- !!!! Driver Class Path !!!! -->
     <classPathEntry
-            location="E:/maven/repository/mysql/mysql-connector-java/5.1.37/mysql-connector-java-5.1.37.jar"/>
+            location="/home/vpclub/.m2/repository/mysql/mysql-connector-java/5.1.37/mysql-connector-java-5.1.37.jar"/>
 
     <context id="context" targetRuntime="MyBatis3">
         <commentGenerator>
@@ -48,7 +48,6 @@
                enableSelectByExample="false" enableUpdateByExample="false"/>
         <table tableName="app_config" enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"/>
-
 
     </context>
 </generatorConfiguration>
