@@ -6,9 +6,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.net.InetAddress;
+import java.util.concurrent.atomic.AtomicLong;
 
 @SpringBootApplication
 public class DemoApplication {
@@ -17,7 +19,7 @@ public class DemoApplication {
         SpringApplication.run(DemoApplication.class, args);
         String pwd = "@vpclubdev";
         System.out.println("encrypt = [" + ConfigTools.encrypt(pwd).trim() + "]");
-        System.out.println("decrypt = [" + ConfigTools.decrypt(pwd).trim() + "]");
+        System.out.println("decrypt = [" + ConfigTools.decrypt(ConfigTools.encrypt(pwd).trim()).trim() + "]");
     }
 
 
@@ -28,9 +30,24 @@ class IPAddressController {
     private int counter;
     @Value("${ipservice.message}")
     private String message;
+
+    private static final String template = "Hello, %s!";
+
+    private final AtomicLong counters = new AtomicLong();
+
     @RequestMapping(value = "/ip", method = RequestMethod.GET)
     public IPAddress ipaddress() throws Exception {
         return new IPAddress(message, ++counter, InetAddress.getLocalHost().getHostAddress());
+    }
+    @RequestMapping("/greeting-javaconfig")
+    public Greeting greetingWithJavaconfig(@RequestParam(required=false, defaultValue="World") String name) {
+        System.out.println("==== in greeting ====");
+        return new Greeting(counters.incrementAndGet(), String.format(template, name));
+    }
+    @RequestMapping("/greeting")
+    public Greeting greeting(@RequestParam(required=false, defaultValue="World") String name) {
+        System.out.println("==== in greeting ====");
+        return new Greeting(counters.incrementAndGet(), String.format(template, name));
     }
 }
 class IPAddress {
@@ -59,5 +76,28 @@ class IPAddress {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+}
+class Greeting {
+
+    private final long id;
+    private final String content;
+
+    public Greeting() {
+        this.id = -1;
+        this.content = "";
+    }
+
+    public Greeting(long id, String content) {
+        this.id = id;
+        this.content = content;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public String getContent() {
+        return content;
     }
 }
