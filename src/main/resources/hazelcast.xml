@@ -17,7 +17,8 @@
 
 					<properties>
 						<!-- configure discovery service API lookup -->
-						<property name="service-dns">hazelcast.hazelcast-cluster.svc.cluster.local</property>
+						<property name="service-name">hazelcast</property>
+						<property name="namespace">hazelcast-cluster</property>
 					</properties>
 				</discovery-strategy>
 			</discovery-strategies>

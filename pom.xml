@@ -72,14 +72,12 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
-
         <!--  cache -->
         <!--<dependency>-->
             <!--<groupId>cn.vpclub</groupId>-->
             <!--<artifactId>spring-boot-starter-hazelcast</artifactId>-->
             <!--<version>${starter.hazelcast.version}</version>-->
         <!--</dependency>-->
-
 
         <dependency>
             <groupId>com.noctarius.discovery</groupId>

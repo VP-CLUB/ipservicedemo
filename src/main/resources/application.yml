@@ -36,7 +36,8 @@ spring:
     encoding.charset: UTF-8
     encoding.enable: true
     encoding.force: true
-
+  hazelcast:
+    config: hazelcast.xml
 mybatis:
   config-location : "classpath:mybatis-config.xml"
   #checkConfig-location : false
