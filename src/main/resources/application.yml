@@ -47,7 +47,7 @@ hazelcast:
   enabled: true
   cluster: true
   servers:
-    -  hazelcast.hazelcast-cluster.svc.cluster.local:80
+    -  172.16.5.40:5701
 
 ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
 # LOGGING
