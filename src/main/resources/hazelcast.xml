@@ -1,6 +1,7 @@
 <hazelcast>
 	<properties>
 		<!-- at the moment the discovery needs to be activated explicitly -->
+		<property name="hazelcast.rest.enabled">true</property>
 		<property name="hazelcast.discovery.enabled">true</property>
 	</properties>
 
@@ -18,6 +19,8 @@
 					<properties>
 						<!-- configure discovery service API lookup -->
 						<property name="service-name">hazelcast</property>
+						<property name="service-label-name">''</property>
+						<property name="service-label-value">true</property>
 						<property name="namespace">hazelcast-cluster</property>
 					</properties>
 				</discovery-strategy>
