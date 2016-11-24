@@ -14,7 +14,7 @@
 			<!-- activate the Kubernetes plugin -->
 			<discovery-strategies>
 				<discovery-strategy enabled="true"
-									class="com.noctarius.hazelcast.kubernetes.HazelcastKubernetesDiscoveryStrategy">
+									class="cn.vpclub.spring.boot.hazelcast.kubernetes.HazelcastKubernetesDiscoveryStrategy">
 
 					<properties>
 						<!-- configure discovery service API lookup -->

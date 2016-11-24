@@ -19,7 +19,7 @@ spring:
     timeout: 30000
 
 hazelcast:
-  enabled: true
+  enabled: false
   cluster: true
   servers:
     -  hazelcast.hazelcast-cluster.172.16.5.60.nip.io
