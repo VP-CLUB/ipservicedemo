@@ -3,7 +3,7 @@
 		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<properties>
 		<!-- at the moment the discovery needs to be activated explicitly -->
-		<property name="hazelcast.rest.enabled">true</property>
+		<!--<property name="hazelcast.rest.enabled">true</property>-->
 		<property name="hazelcast.discovery.enabled">true</property>
 	</properties>
 
@@ -20,13 +20,13 @@
 
 					<properties>
 						<!-- configure discovery service API lookup -->
-						<property name="service-name">HAZELCAST_KUBERNETES_SERVICE_NAME</property>
-						<property name="service-label-name">''</property>
-						<property name="service-label-value">true</property>
-						<property name="namespace">HAZELCAST_KUBERNETES_NAMESPACE</property>
+						<!--<property name="service-name">HAZELCAST_KUBERNETES_SERVICE_NAME</property>-->
+						<!--<property name="service-label-name">''</property>-->
+						<!--<property name="service-label-value">true</property>-->
+						<!--<property name="namespace">HAZELCAST_KUBERNETES_NAMESPACE</property>-->
 
 						<!-- configure discovery service API lookup -->
-						<!--<property name="service-dns">hazelcast.hazelcast-cluster.svc.cluster.local</property>-->
+						<property name="service-dns">hazelcast.hazelcast-cluster.svc.cluster.local</property>
 						<!--<property name="service-dns">hazelcast.hazelcast-cluster.172.16.5.60.nip.io:80</property>-->
 					</properties>
 				</discovery-strategy>

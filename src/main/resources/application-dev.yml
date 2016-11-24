@@ -19,10 +19,10 @@ spring:
     timeout: 30000
 
 hazelcast:
-  enabled: false
+  enabled: true
   cluster: true
   servers:
-    -  hazelcast.hazelcast-cluster.172.16.5.60.nip.io:80
+    -  hazelcast.hazelcast-cluster.svc.cluster.local:80
 
 spring.sleuth.sampler.percentage: 1.0
 
