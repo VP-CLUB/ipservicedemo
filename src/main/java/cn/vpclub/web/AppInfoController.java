@@ -1,6 +1,7 @@
 package cn.vpclub.web;
 
 import cn.vpclub.api.AppInfoService;
+import cn.vpclub.api.CacheManageService;
 import cn.vpclub.api.domain.AppInfo;
 import cn.vpclub.api.domain.BaseAppInfo;
 import cn.vpclub.api.model.request.AppInfoParam;
@@ -35,34 +36,64 @@ public class AppInfoController extends BaseController {
     @Autowired
     private AppInfoService appInfoService;
 
+    @Autowired
+    private CacheManageService cacheManageService;
+
     @RequestMapping(value = "/ip", method = RequestMethod.GET)
     public String ipaddress() throws Exception {
         return message+ "---"+InetAddress.getLocalHost().getHostAddress()+"--"+(++counter);
     }
     /**
-     * 根据主键ID删除外部应用系统信息
+     * save cache
      *
      * @param reqMap
      * @param resp
      */
-    @RequestMapping(value = "deleteDataInfo", method = RequestMethod.POST)
-    public void deleteDataInfo(@RequestBody Map<String, Object> reqMap, @Context HttpServletResponse resp) {
-        logger.info("deleteDataInfo method request: " + JsonUtil.objectToJson(reqMap));
+    @RequestMapping(value = "saveCache", method = RequestMethod.POST)
+    public void saveCache(@RequestBody Map<String, String> reqMap, @Context HttpServletResponse resp) {
         BaseResponse response = new BaseResponse();
-        String dataId = null;
-        if (null != reqMap && !reqMap.isEmpty()) {
-            dataId = MapParserUtil.getStringFromMap(reqMap, "dataId");
+        try {
+            String requestJson =  JsonUtil.objectToJson(reqMap);
+            logger.info("saveCache method request: " +requestJson);
+            Object data = cacheManageService.putCache(requestJson,reqMap.get("cacheKey"));
+            response.setDataInfo(data);
+            response.setReturnCode(ReturnCodeEnum.CODE_1000.getCode());
+            response.setMessage(ReturnCodeEnum.CODE_1000.getValue());
         }
-        if (StringUtil.isNotEmpty(dataId)) {
-            // 删除数据
-            response = appInfoService.deleteDataInfoByKey(dataId);
-        } else {
-            response.setReturnCode(ReturnCodeEnum.CODE_1006.getCode());
-            response.setMessage(ReturnCodeEnum.CODE_1006.getValue());
+        catch (Exception e){
+            response.setReturnCode(ReturnCodeEnum.CODE_1005.getCode());
+            response.setMessage(ReturnCodeEnum.CODE_1005.getValue());
         }
-
         String responseStr = JsonUtil.objectToJson(response);
-        logger.info("deleteDataInfo method return data: " + responseStr);
+
+        logger.info("saveCache method return data: " + responseStr);
+        // 设置接口返回信息
+        HttpResponseUtil.setResponseBody(resp, responseStr);
+    }
+    /**
+     * get cache
+     *
+     * @param reqMap
+     * @param resp
+     */
+    @RequestMapping(value = "getCache", method = RequestMethod.POST)
+    public void getCache(@RequestBody Map<String, String> reqMap, @Context HttpServletResponse resp) {
+        BaseResponse response = new BaseResponse();
+        try {
+            String requestJson =  JsonUtil.objectToJson(reqMap);
+            logger.info("getCache method request: " +requestJson);
+            Object data = cacheManageService.getCache(null,reqMap.get("cacheKey"));
+            response.setDataInfo(data);
+            response.setReturnCode(ReturnCodeEnum.CODE_1000.getCode());
+            response.setMessage(ReturnCodeEnum.CODE_1000.getValue());
+        }
+        catch (Exception e){
+            response.setReturnCode(ReturnCodeEnum.CODE_1005.getCode());
+            response.setMessage(ReturnCodeEnum.CODE_1005.getValue());
+        }
+        String responseStr = JsonUtil.objectToJson(response);
+
+        logger.info("getCache method return data: " + responseStr);
         // 设置接口返回信息
         HttpResponseUtil.setResponseBody(resp, responseStr);
     }

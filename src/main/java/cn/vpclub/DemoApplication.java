@@ -3,6 +3,7 @@ package cn.vpclub;
 import com.alibaba.druid.filter.config.ConfigTools;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.actuate.system.ApplicationPidFileWriter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -16,7 +17,13 @@ import java.util.concurrent.atomic.AtomicLong;
 public class DemoApplication {
 
     public static void main(String[] args) throws Exception{
-        SpringApplication.run(DemoApplication.class, args);
+//        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication application = new SpringApplication(
+                DemoApplication.class);
+        application.addListeners(
+                new ApplicationPidFileWriter("app.pid"));
+        application.run(args);
+
         String pwd = "@vpclubdev";
         System.out.println("encrypt = [" + ConfigTools.encrypt(pwd).trim() + "]");
         System.out.println("decrypt = [" + ConfigTools.decrypt(ConfigTools.encrypt(pwd).trim()).trim() + "]");

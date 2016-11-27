@@ -11,12 +11,6 @@ spring:
       host: 172.16.45.3
       port: 27017
 
-  redis:
-    database: 0
-    host: 172.16.45.3
-#    password: 'traffic.prod'
-    port: 6379
-    timeout: 30000
 
 hazelcast:
   enabled: true

@@ -1,5 +1,6 @@
 package cn.vpclub.mockmvc;
 
+import cn.vpclub.api.model.response.BaseResponse;
 import cn.vpclub.api.model.response.PageDataResponse;
 import cn.vpclub.common.utils.JsonUtil;
 import org.junit.Assert;
@@ -47,6 +48,48 @@ public class AppInfoControllerTest extends BaseMockMvcTest {
         PageDataResponse response = JsonUtil.jsonToObject(content, PageDataResponse.class);
         Assert.assertEquals(response.getReturnCode().toString(), "1000");
     }
+    @Test
+    public void testCacheSave() throws Exception {
+        String uri = "/common/appInfo/saveCache";
+        Map<String, String> paramMap = new HashMap<String, String>();
+        paramMap.put("cacheKey","test" );
+        paramMap.put("data","testvalue" );
+        String inputJson = JsonUtil.objectToJson(paramMap);
+        logger.info("保存cache值paramMap: " + inputJson);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(inputJson))
+                .andExpect(status().isOk())
+                .andReturn();
 
+        String content = result.getResponse().getContentAsString();
+        Assert.assertNotNull(content);
+        logger.info("保存cache测试返回：" + content);
+
+        BaseResponse response = JsonUtil.jsonToObject(content, BaseResponse.class);
+        Assert.assertEquals(response.getReturnCode().toString(), "1000");
+    }
+    @Test
+    public void testCacheGet() throws Exception {
+        String uri = "/common/appInfo/getCache";
+        Map<String, String> paramMap = new HashMap<String, String>();
+        paramMap.put("cacheKey","test" );
+        String inputJson = JsonUtil.objectToJson(paramMap);
+        logger.info("查询cache值paramMap: " + inputJson);
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(inputJson))
+                .andExpect(status().isOk())
+                .andReturn();
+
+        String content = result.getResponse().getContentAsString();
+        Assert.assertNotNull(content);
+        logger.info("查询cache测试返回：" + content);
+
+        BaseResponse response = JsonUtil.jsonToObject(content, BaseResponse.class);
+        Assert.assertEquals(response.getReturnCode().toString(), "1000");
+    }
 
 }
