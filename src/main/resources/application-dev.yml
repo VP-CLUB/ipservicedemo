@@ -3,9 +3,12 @@ spring:
   datasource:
     name: testdb
     url: jdbc:mysql://172.16.5.23:3306/vp_common_config?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: mQO7NpV1ohNjA37/xSIsNCIlVY4woR+zuAyeD3dBPpwcUX75gsZbvJftqhtpESDvItn6MUlJwrAAsi5+65fySQ==
-
+    username: ipservicedemo
+#    password: "Wlq6EIZbqXMDAQMkNxLxXVAtmZNKq7ex9+nfMVAkrTP1RI2op1gESzOjfkL/PQ1mGiZwdapPtmmjcjSluFIr1A=="
+    password: vpclub.dev
+    # encrypt password
+    filters: config,stat,wall,log4j
+    connectionProperties: "config.decrypt=false;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
   data:
     mongodb:
       host: 172.16.45.3
@@ -13,7 +16,7 @@ spring:
 
 
 hazelcast:
-  enabled: true
+  enabled: false
   cluster: true
   servers:
     -  172.16.5.40:5701
@@ -23,3 +26,29 @@ spring.sleuth.sampler.percentage: 1.0
 #dev mode disable zipkin
 spring.cloud.kubernetes.zipkin.discovery.enabled: false
 ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
+
+#kafka
+kafka:
+  broker: 172.16.5.23:9092
+  topic: topic1
+  group: si.group
+  partions: 6
+  timeout: 15000
+
+#
+##bootstrap.servers 是必须要有的配置项, 值是 kafka 的 broker 地址列表
+#springboot.kafka.conf.props[bootstrap.servers]: 172.16.5.23:9092
+#
+## 发送回执
+#springboot.kafka.conf.props[acks]: '1'
+#
+## 重试
+#springboot.kafka.conf.props[retries]: 3
+#springboot.kafka.conf.props[retry.backoff.ms]: 1000
+#
+## 元数据
+#springboot.kafka.conf.props[metadata.fetch.timeout.ms]: 5000 # 设置短一点时间有利于尽快发现配置异常
+##实例会将发送失败的消息暂存到本地目录中.
+#springboot.kafka.recovery.dir: recovery
+#
+#springboot.kafka.topic:

@@ -1,10 +1,12 @@
 package cn.vpclub;
 
+import cn.vpclub.mq.kafka.Listener;
 import com.alibaba.druid.filter.config.ConfigTools;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.actuate.system.ApplicationPidFileWriter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -16,19 +18,20 @@ import java.util.concurrent.atomic.AtomicLong;
 @SpringBootApplication
 public class DemoApplication {
 
+    @Bean
+    public Listener listener() {
+        return new Listener();
+    }
     public static void main(String[] args) throws Exception{
-//        SpringApplication.run(DemoApplication.class, args);
-        SpringApplication application = new SpringApplication(
-                DemoApplication.class);
-        application.addListeners(
-                new ApplicationPidFileWriter("app.pid"));
-        application.run(args);
+        SpringApplication.run(DemoApplication.class, args);
+//        SpringApplication application = new SpringApplication(
+//                DemoApplication.class);
+//        application.run(args);
 
-        String pwd = "@vpclubdev";
+        String pwd = "vpclub.dev";
         System.out.println("encrypt = [" + ConfigTools.encrypt(pwd).trim() + "]");
         System.out.println("decrypt = [" + ConfigTools.decrypt(ConfigTools.encrypt(pwd).trim()).trim() + "]");
     }
-
 
 }
 
