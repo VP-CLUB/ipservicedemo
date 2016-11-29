@@ -8,7 +8,7 @@ spring:
 #    username: root
     username: ipservicedemo
 #    password: mQO7NpV1ohNjA37/xSIsNCIlVY4woR+zuAyeD3dBPpwcUX75gsZbvJftqhtpESDvItn6MUlJwrAAsi5+65fySQ==
-    password: "@vpclubdev"
+    password: vpclub.dev
     # using druid data source
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
