@@ -9,6 +9,7 @@ package cn.vpclub.mockmvc;
  */
 
 import cn.vpclub.mq.kafka.Listener;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -18,7 +19,6 @@ import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import java.util.concurrent.TimeUnit;
 
-import static junit.framework.TestCase.assertEquals;
 
 
 public class SpringKafkaApplicationTests extends BaseMockMvcTest{
@@ -36,16 +36,17 @@ public class SpringKafkaApplicationTests extends BaseMockMvcTest{
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
             public void onSuccess(SendResult<String, String> result) {
-                logger.info("addCallback success");
+                logger.info("success");
             }
 
             @Override
             public void onFailure(Throwable ex) {
-                logger.error("addCallback failed");
+                logger.error("failed");
             }
         });
-        logger.info("progress id is :  "+Thread.currentThread().getId());
-        assertEquals(this.listener.count.await(1000, TimeUnit.SECONDS), true);
+        logger.info(Thread.currentThread().getId()+"");
+        Assert.assertEquals(this.listener.count.await(60, TimeUnit.SECONDS),true);
+
     }
 
 }
