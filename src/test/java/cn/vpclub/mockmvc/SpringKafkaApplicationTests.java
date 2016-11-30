@@ -36,16 +36,16 @@ public class SpringKafkaApplicationTests extends BaseMockMvcTest{
         future.addCallback(new ListenableFutureCallback<SendResult<String, String>>() {
             @Override
             public void onSuccess(SendResult<String, String> result) {
-                logger.info("success");
+                logger.info("addCallback success");
             }
 
             @Override
             public void onFailure(Throwable ex) {
-                logger.error("failed");
+                logger.error("addCallback failed");
             }
         });
-        logger.info(Thread.currentThread().getId()+"");
-        assertThat(this.listener.countDownLatch1.await(60, TimeUnit.SECONDS)).isTrue();
+        logger.info("progress id is :  "+Thread.currentThread().getId());
+        assertThat(this.listener.count.await(60, TimeUnit.SECONDS)).isTrue();
 
     }
 

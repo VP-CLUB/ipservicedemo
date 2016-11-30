@@ -1,6 +1,8 @@
 package cn.vpclub.mq.kafka;
 
 import org.apache.kafka.clients.consumer.ConsumerRecord;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 
 import java.util.concurrent.CountDownLatch;
@@ -13,13 +15,13 @@ import java.util.concurrent.CountDownLatch;
  * ProjectName ipservicedemo
  */
 public class Listener {
+    protected Logger logger = LoggerFactory.getLogger(Listener.class);
+    public final CountDownLatch count = new CountDownLatch(1);
 
-    public final CountDownLatch countDownLatch1 = new CountDownLatch(1);
-
-    @KafkaListener(id = "foo", topics = "${kafka.topic}", group = "group1")
+    @KafkaListener(topics = "${kafka.topic}", group = "${kafka.group}")
     public void listen(ConsumerRecord<?, ?> record) {
-        System.out.println(record);
-        countDownLatch1.countDown();
+        logger.info("consumer back data is "+record.toString());
+        count.countDown();
     }
 
 }
