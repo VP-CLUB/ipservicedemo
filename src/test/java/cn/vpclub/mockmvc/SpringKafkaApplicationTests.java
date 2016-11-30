@@ -45,7 +45,7 @@ public class SpringKafkaApplicationTests extends BaseMockMvcTest{
             }
         });
         logger.info("progress id is :  "+Thread.currentThread().getId());
-        assertThat(this.listener.count.await(60, TimeUnit.SECONDS)).isTrue();
+        assertThat(this.listener.count.await(1000, TimeUnit.SECONDS)).isTrue();
 
     }
 
