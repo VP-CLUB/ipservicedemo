@@ -9,6 +9,7 @@ package cn.vpclub.mockmvc;
  */
 
 import cn.vpclub.mq.kafka.Listener;
+import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.kafka.core.KafkaTemplate;
@@ -17,8 +18,6 @@ import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
 import java.util.concurrent.TimeUnit;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 
 public class SpringKafkaApplicationTests extends BaseMockMvcTest{
@@ -45,8 +44,7 @@ public class SpringKafkaApplicationTests extends BaseMockMvcTest{
             }
         });
         logger.info("progress id is :  "+Thread.currentThread().getId());
-        assertThat(this.listener.count.await(1000, TimeUnit.SECONDS)).isTrue();
-
+        Assert.assertEquals(this.listener.count.await(1000, TimeUnit.SECONDS), true);
     }
 
 }
