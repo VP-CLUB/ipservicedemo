@@ -68,7 +68,7 @@ public class AppInfoControllerTest extends BaseMockMvcTest {
         logger.info("保存cache测试返回：" + content);
 
         BaseResponse response = JsonUtil.jsonToObject(content, BaseResponse.class);
-        Assert.assertEquals(response.getReturnCode().toString(), "1000");
+        Assert.assertEquals(response.getReturnCode()+"", 1000+"");
     }
     @Test
     public void testCacheGet() throws Exception {
@@ -89,7 +89,7 @@ public class AppInfoControllerTest extends BaseMockMvcTest {
         logger.info("查询cache测试返回：" + content);
 
         BaseResponse response = JsonUtil.jsonToObject(content, BaseResponse.class);
-        Assert.assertEquals(response.getReturnCode().toString(), "1000");
+        Assert.assertEquals(response.getReturnCode()+"", 1000+"");
     }
 
 }
