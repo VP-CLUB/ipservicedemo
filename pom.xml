@@ -202,7 +202,9 @@
                     <name>build</name>
                     <value>kubernetes</value>
                 </property>
+            <activeByDefault>true</activeByDefault>
             </activation>
+
             <build>
                 <plugins>
                     <plugin>
