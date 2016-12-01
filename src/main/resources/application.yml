@@ -76,5 +76,5 @@ cors:
 #undertow config optimize
 server:
   undertow:
-    io-threads: 500
-    worker-threads: 800
+    io-threads: 2
+    worker-threads: 20
