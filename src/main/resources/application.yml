@@ -72,3 +72,9 @@ logging:
 cors:
   mappings: /**
   allowedOrigins:
+
+#undertow config optimize
+server:
+  undertow:
+    io-threads: 500
+    worker-threads: 800
