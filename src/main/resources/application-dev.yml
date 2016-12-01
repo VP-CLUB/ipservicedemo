@@ -2,11 +2,11 @@
 app:
   datasource:
     name: vp_common_config
-    host: 172.16.5.23:3306
-    username: ipservicedemo
-    password: UFeMDFM7e1Tw9pPrxCVhgpuFgvbbC3WiKffh+ekbxVD5gXn4I4MyZR3HoAdP3fYmjvpr096frbhKNeL/GnwZ2Q==
+    host: 172.16.2.231:3306
+    username: root
+    password: W9ci2t3etu51StgDvtARiCAUGXIDSiwiFaATxcrMoZcDNUc65Z25g/vo1AUgH3fg+bu7NK7hCv3g/19R0M7lAQ==
     druid:
-      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI2zXImQtSctT1r23Qdk05CL/CnAyprxOX6bWy8wo9RQAjJ672SPcvZxnXQTom6DteYQ5D6oSFa+atEXXlp9doECAwEAAQ==
+      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAJEF9SzddgYHPiMKHbWtos7KBxj1tUO19Ro8CkB76TbsHKhfqcLU4hi8VDpTelF52YmKEDMPcM0uWgRBIkqy+kcCAwEAAQ==
 
 hazelcast:
   enabled: false

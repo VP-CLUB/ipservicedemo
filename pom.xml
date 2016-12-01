@@ -23,7 +23,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <starter.hazelcast.version>1.0.1</starter.hazelcast.version>
         <starter.cors.version>1.0.0</starter.cors.version>
-        <starter.mybatis.version>1.0.1</starter.mybatis.version>
+        <starter.mybatis.version>1.0.2</starter.mybatis.version>
         <starter.kafka.version>0.0.5</starter.kafka.version>
         <java.version>1.8</java.version>
         <fabric8.maven.plugin.version>3.1.71</fabric8.maven.plugin.version>
