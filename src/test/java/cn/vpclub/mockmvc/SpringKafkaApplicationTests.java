@@ -45,7 +45,8 @@ public class SpringKafkaApplicationTests extends BaseMockMvcTest{
             }
         });
         logger.info(Thread.currentThread().getId()+"");
-        Assert.assertEquals(this.listener.count.await(60, TimeUnit.SECONDS),true);
+        Boolean returnValue = this.listener.count.await(60, TimeUnit.SECONDS);
+        Assert.assertNotSame(returnValue,true);
 
     }
 

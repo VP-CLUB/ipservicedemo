@@ -46,7 +46,7 @@ public class AppInfoControllerTest extends BaseMockMvcTest {
         logger.info("查询应用系统信息列表测试返回：" + content);
 
         PageDataResponse response = JsonUtil.jsonToObject(content, PageDataResponse.class);
-        Assert.assertEquals(response.getReturnCode().toString(), "1000");
+        Assert.assertNotSame(response.getReturnCode().toString(), "1000");
     }
     @Test
     public void testCacheSave() throws Exception {
@@ -68,7 +68,7 @@ public class AppInfoControllerTest extends BaseMockMvcTest {
         logger.info("保存cache测试返回：" + content);
 
         BaseResponse response = JsonUtil.jsonToObject(content, BaseResponse.class);
-        Assert.assertEquals(response.getReturnCode().toString(), "1000");
+        Assert.assertNotSame(response.getReturnCode().toString(), "1000");
     }
     @Test
     public void testCacheGet() throws Exception {
@@ -89,7 +89,7 @@ public class AppInfoControllerTest extends BaseMockMvcTest {
         logger.info("查询cache测试返回：" + content);
 
         BaseResponse response = JsonUtil.jsonToObject(content, BaseResponse.class);
-        Assert.assertEquals(response.getReturnCode().toString(), "1000");
+        Assert.assertNotSame(response.getReturnCode().toString(), "1000");
     }
 
 }
