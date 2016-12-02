@@ -46,7 +46,6 @@ public class SpringKafkaApplicationTests extends BaseMockMvcTest{
         });
         logger.info(Thread.currentThread().getId()+"");
         Assert.assertNotSame(listener.baseResponse.getReturnCode(),1000);
-
     }
 
 }

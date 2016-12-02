@@ -21,7 +21,7 @@ public class Listener {
     protected Logger logger = LoggerFactory.getLogger(Listener.class);
     public final CountDownLatch count = new CountDownLatch(1);
 
-    public BaseResponse baseResponse;
+    public BaseResponse baseResponse = new BaseResponse();
 
     @KafkaListener(topics = "${kafka.topic}", group = "${kafka.group}")
     public void listen(ConsumerRecord<?, ?> record) {
