@@ -77,4 +77,4 @@ cors:
 server:
   undertow:
     io-threads: 2
-    worker-threads: 20
+    worker-threads: 100

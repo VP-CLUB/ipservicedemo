@@ -3,8 +3,8 @@ package cn.vpclub.mockmvc;
 
 import cn.vpclub.DemoApplication;
 import cn.vpclub.api.model.response.BaseResponse;
-import cn.vpclub.common.utils.JsonUtil;
-import cn.vpclub.common.utils.StringUtil;
+import cn.vpclub.common.tools.utils.JsonUtil;
+import cn.vpclub.common.tools.utils.StringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.runner.RunWith;
@@ -21,10 +21,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
-
-import javax.transaction.Transactional;
-import java.util.HashMap;
-import java.util.Map;
 
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
@@ -51,5 +47,16 @@ public abstract class BaseMockMvcTest {
         MockitoAnnotations.initMocks(this);
         mockMvc = MockMvcBuilders.webAppContextSetup(context).build();
     }
+    public String post(String uri,String jsonParam) throws Exception{
+        MvcResult result = mockMvc.perform(MockMvcRequestBuilders.post(uri)
+                .contentType(MediaType.APPLICATION_JSON)
+                .accept(MediaType.APPLICATION_JSON)
+                .content(jsonParam))
+                .andExpect(status().isOk())
+                .andReturn();
 
+        String content = result.getResponse().getContentAsString();
+        Assert.assertNotNull(content);
+        return content;
+    }
 }

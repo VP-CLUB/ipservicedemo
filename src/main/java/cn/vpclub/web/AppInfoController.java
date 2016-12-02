@@ -7,11 +7,11 @@ import cn.vpclub.api.domain.BaseAppInfo;
 import cn.vpclub.api.model.request.AppInfoParam;
 import cn.vpclub.api.model.response.BaseResponse;
 import cn.vpclub.api.model.response.PageDataResponse;
-import cn.vpclub.common.enums.ReturnCodeEnum;
-import cn.vpclub.common.utils.HttpResponseUtil;
-import cn.vpclub.common.utils.JsonUtil;
-import cn.vpclub.common.utils.MapParserUtil;
-import cn.vpclub.common.utils.StringUtil;
+import cn.vpclub.common.tools.enums.ReturnCodeEnum;
+import cn.vpclub.common.tools.utils.HttpResponseUtil;
+import cn.vpclub.common.tools.utils.JsonUtil;
+import cn.vpclub.common.tools.utils.MapParserUtil;
+import cn.vpclub.common.tools.utils.StringUtil;
 import cn.vpclub.web.base.BaseController;
 
 import org.springframework.beans.factory.annotation.Autowired;

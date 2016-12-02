@@ -1,7 +1,7 @@
 package cn.vpclub.service.impl;
 
 import cn.vpclub.api.CacheManageService;
-import cn.vpclub.common.utils.StringUtil;
+import cn.vpclub.common.tools.utils.StringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.cache.annotation.CacheEvict;
