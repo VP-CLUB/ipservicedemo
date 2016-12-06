@@ -45,7 +45,6 @@ node {
     stage 'Canary Release'
     mavenCanaryRelease{
       version = canaryVersion
-
     }
 
     stage 'Integration Testing'
