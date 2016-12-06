@@ -17,7 +17,7 @@ def versionPrefix = ""
 try {
   versionPrefix = VERSION_PREFIX
 } catch (Throwable e) {
-  versionPrefix = "1.2"
+  versionPrefix = "1.3"
 }
 
 def canaryVersion = "${versionPrefix}.${env.BUILD_NUMBER}"
@@ -45,6 +45,7 @@ node {
     stage 'Canary Release'
     mavenCanaryRelease{
       version = canaryVersion
+
     }
 
     stage 'Integration Testing'
