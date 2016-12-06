@@ -4,12 +4,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>cn.vpclub</groupId>
-    <artifactId>ipservicedemo</artifactId>
+    <artifactId>ipservice</artifactId>
     <version>1.3.0</version>
     <packaging>jar</packaging>
 
-    <name>ipservicedemo</name>
-    <description>ipservicedemo project</description>
+    <name>ipservice</name>
+    <description>ipservice project</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
