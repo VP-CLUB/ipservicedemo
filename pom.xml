@@ -220,16 +220,6 @@
                     <plugin>
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
-                        <configuration>
-                            <mainClass>cn.vpclub.DemoApplication</mainClass>
-                        </configuration>
-                        <executions>
-                            <execution>
-                                <goals>
-                                    <goal>repackage</goal>
-                                </goals>
-                            </execution>
-                        </executions>
                     </plugin>
                     <plugin>
                         <groupId>io.fabric8</groupId>
@@ -240,7 +230,7 @@
                                 <goals>
                                     <goal>resource</goal>
                                     <goal>build</goal>
-                                    <!--<goal>helm</goal>-->
+                                    <goal>helm</goal>
                                 </goals>
                             </execution>
                         </executions>
