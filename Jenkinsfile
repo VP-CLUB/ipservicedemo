@@ -32,7 +32,7 @@ node {
   git 'http://gogs.fabric8.172.16.5.60.nip.io/gogsadmin/ipservice.git'
 
   echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
-  kubernetes.pod('buildpod').withImage('vpclub/maven-builder:1.0.4')
+  kubernetes.pod('buildpod').withImage('vpclub/maven-builder:1.0.5')
           .withPrivileged(true)
           .withHostPathMount('/var/run/docker.sock','/var/run/docker.sock')
           .withEnvVar('DOCKER_CONFIG','/home/jenkins/.docker/')
