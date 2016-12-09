@@ -8,7 +8,7 @@ package cn.vpclub.mockmvc;
  * ProjectName ipservicedemo
  */
 
-import cn.vpclub.mq.kafka.Listener;
+import cn.vpclub.ipaddress.mq.kafka.Listener;
 import org.junit.Assert;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,9 +16,6 @@ import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
-
-import java.util.concurrent.TimeUnit;
-
 
 
 public class SpringKafkaApplicationTests extends BaseMockMvcTest{

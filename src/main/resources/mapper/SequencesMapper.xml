@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.vpclub.storage.mapper.SequencesMapper">
-    <resultMap id="BaseResultMap" type="cn.vpclub.api.domain.Sequences">
+<mapper namespace="cn.vpclub.ipaddress.storage.mapper.SequencesMapper">
+    <resultMap id="BaseResultMap" type="cn.vpclub.ipaddress.api.domain.Sequences">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="seqtype" property="seqtype" jdbcType="INTEGER"/>
         <result column="currentno" property="currentno" jdbcType="BIGINT"/>
@@ -35,7 +35,7 @@
         delete from sequences where id = #{id,jdbcType=INTEGER}
     </delete>
 
-    <insert id="insert" parameterType="cn.vpclub.api.domain.Sequences">
+    <insert id="insert" parameterType="cn.vpclub.ipaddress.api.domain.Sequences">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
@@ -55,7 +55,7 @@
              #{remark,jdbcType=VARCHAR})
     </insert>
 
-    <insert id="insertSelective" parameterType="cn.vpclub.api.domain.Sequences">
+    <insert id="insertSelective" parameterType="cn.vpclub.ipaddress.api.domain.Sequences">
         <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER">
             SELECT LAST_INSERT_ID()
         </selectKey>
@@ -102,7 +102,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKey" parameterType="cn.vpclub.api.domain.Sequences">
+    <update id="updateByPrimaryKey" parameterType="cn.vpclub.ipaddress.api.domain.Sequences">
         UPDATE sequences
             SET seqtype = #{seqtype, jdbcType=INTEGER},
                 currentno = #{currentno, jdbcType=BIGINT},
@@ -113,19 +113,19 @@
          WHERE id = #{id, jdbcType=INTEGER}
     </update>
 
-    <update id="updateNumberPrefix" parameterType="cn.vpclub.api.domain.Sequences">
+    <update id="updateNumberPrefix" parameterType="cn.vpclub.ipaddress.api.domain.Sequences">
         UPDATE sequences
             SET number_prefix = #{numberPrefix, jdbcType=INTEGER}
          WHERE id = #{id, jdbcType=INTEGER}
     </update>
 
-    <update id="updateDigitValue" parameterType="cn.vpclub.api.domain.Sequences">
+    <update id="updateDigitValue" parameterType="cn.vpclub.ipaddress.api.domain.Sequences">
         UPDATE sequences
            SET digit = #{digit, jdbcType=INTEGER}
          WHERE id = #{id, jdbcType=INTEGER}
     </update>
 
-    <update id="updateCurrentValue" parameterType="cn.vpclub.api.domain.Sequences">
+    <update id="updateCurrentValue" parameterType="cn.vpclub.ipaddress.api.domain.Sequences">
         UPDATE sequences
            SET currentno = #{currentno, jdbcType=BIGINT},
                 countnum = #{countnum, jdbcType=INTEGER}

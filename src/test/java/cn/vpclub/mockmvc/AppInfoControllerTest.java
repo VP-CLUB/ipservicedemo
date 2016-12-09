@@ -1,7 +1,7 @@
 package cn.vpclub.mockmvc;
 
-import cn.vpclub.api.model.response.BaseResponse;
-import cn.vpclub.api.model.response.PageDataResponse;
+import cn.vpclub.ipaddress.api.model.response.BaseResponse;
+import cn.vpclub.ipaddress.api.model.response.PageDataResponse;
 import cn.vpclub.common.tools.utils.JsonUtil;
 import org.junit.Assert;
 import org.junit.Test;

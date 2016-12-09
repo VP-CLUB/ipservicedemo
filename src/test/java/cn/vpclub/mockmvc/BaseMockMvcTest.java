@@ -2,9 +2,6 @@ package cn.vpclub.mockmvc;
 
 
 import cn.vpclub.DemoApplication;
-import cn.vpclub.api.model.response.BaseResponse;
-import cn.vpclub.common.tools.utils.JsonUtil;
-import cn.vpclub.common.tools.utils.StringUtil;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.runner.RunWith;

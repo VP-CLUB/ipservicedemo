@@ -1,10 +1,12 @@
 package cn.vpclub;
 
-import cn.vpclub.mq.kafka.Listener;
+import cn.vpclub.ipaddress.mq.kafka.Listener;
+import cn.vpclub.ipaddress.web.base.BaseController;
 import com.alibaba.druid.filter.config.ConfigTools;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
-import org.springframework.boot.actuate.system.ApplicationPidFileWriter;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,7 +19,7 @@ import java.util.concurrent.atomic.AtomicLong;
 
 @SpringBootApplication
 public class DemoApplication {
-
+    public Logger logger = LoggerFactory.getLogger(DemoApplication.class);
     @Bean
     public Listener listener() {
         return new Listener();
@@ -36,7 +38,7 @@ public class DemoApplication {
 }
 
 @RestController
-class IPAddressController {
+class IPAddressController extends BaseController{
     private int counter;
     @Value("${ipservice.message}")
     private String message;
@@ -51,12 +53,12 @@ class IPAddressController {
     }
     @RequestMapping("/greeting-javaconfig")
     public Greeting greetingWithJavaconfig(@RequestParam(required=false, defaultValue="World") String name) {
-        System.out.println("==== in greeting ====");
+        logger.info("==== in greeting ====");
         return new Greeting(counters.incrementAndGet(), String.format(template, name));
     }
     @RequestMapping("/greeting")
     public Greeting greeting(@RequestParam(required=false, defaultValue="World") String name) {
-        System.out.println("==== in greeting ====");
+        logger.info("==== in greeting ====");
         return new Greeting(counters.incrementAndGet(), String.format(template, name));
     }
 }

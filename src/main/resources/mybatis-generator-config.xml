@@ -24,7 +24,7 @@
         </javaTypeResolver>
 
         <!-- !!!! Model Configurations !!!! -->
-        <javaModelGenerator targetPackage="cn.vpclub.api.domain"
+        <javaModelGenerator targetPackage="cn.vpclub.ipaddress.api.domain"
                             targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
@@ -36,7 +36,7 @@
         </sqlMapGenerator>
 
         <!-- !!!! Mapper Interface Configurations !!!! -->
-        <javaClientGenerator targetPackage="cn.vpclub.storage.mapper"
+        <javaClientGenerator targetPackage="cn.vpclub.ipaddress.storage.mapper"
                              targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
