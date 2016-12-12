@@ -13,3 +13,8 @@ spec:
         - volumeMounts:
             - name: config
               mountPath: /app/config
+        ports:
+          - containerPort: 8080
+            name: web
+          - containerPort: 7575
+            name: grpc-node
