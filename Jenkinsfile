@@ -43,16 +43,16 @@ node {
           .inside {
 
     stage 'Canary Release'
-    mavenCanaryRelease{
-      version = canaryVersion
-    }
-
-    stage 'Integration Testing'
-    mavenIntegrationTest{
-      environment = 'Testing'
-      failIfNoTests = localFailIfNoTests
-      itestPattern = localItestPattern
-    }
+//    mavenCanaryRelease{
+//      version = canaryVersion
+//    }
+//
+//    stage 'Integration Testing'
+//    mavenIntegrationTest{
+//      environment = 'Testing'
+//      failIfNoTests = localFailIfNoTests
+//      itestPattern = localItestPattern
+//    }
 
     stage 'Rolling Upgrade Staging'
     kubernetesApply(environment: envStage)
