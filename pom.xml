@@ -242,20 +242,20 @@
                         <groupId>org.springframework.boot</groupId>
                         <artifactId>spring-boot-maven-plugin</artifactId>
                     </plugin>
-                    <!--<plugin>-->
-                        <!--<groupId>io.fabric8</groupId>-->
-                        <!--<artifactId>fabric8-maven-plugin</artifactId>-->
-                        <!--<version>${fabric8.maven.plugin.version}</version>-->
-                        <!--<executions>-->
-                            <!--<execution>-->
-                                <!--<goals>-->
-                                    <!--<goal>resource</goal>-->
-                                    <!--<goal>build</goal>-->
-                                    <!--<goal>helm</goal>-->
-                                <!--</goals>-->
-                            <!--</execution>-->
-                        <!--</executions>-->
-                    <!--</plugin>-->
+                    <plugin>
+                        <groupId>io.fabric8</groupId>
+                        <artifactId>fabric8-maven-plugin</artifactId>
+                        <version>${fabric8.maven.plugin.version}</version>
+                        <executions>
+                            <execution>
+                                <goals>
+                                    <goal>resource</goal>
+                                    <goal>build</goal>
+                                    <goal>helm</goal>
+                                </goals>
+                            </execution>
+                        </executions>
+                    </plugin>
 
                 </plugins>
                 <!--<extensions>-->
