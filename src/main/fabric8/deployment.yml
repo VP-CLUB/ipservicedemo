@@ -10,13 +10,14 @@ spec:
             - key: application.properties
               path: application.properties
       containers:
+        - name: ${project.artifactId}
           ports:
             - containerPort: 8080
               name: http
               protocol: TCP
             - containerPort: 7575
               name: grpc
-        - volumeMounts:
+          volumeMounts:
             - name: config
               mountPath: /app/config
 
