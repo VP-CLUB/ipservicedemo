@@ -16,7 +16,8 @@ spec:
             protocol: TCP
           - containerPort: 7575
             name: grpc
-      　volumeMounts:
-          - name: config
-            mountPath: /app/config
+
+        - volumeMounts:
+            - name: config
+              mountPath: /app/config
 
