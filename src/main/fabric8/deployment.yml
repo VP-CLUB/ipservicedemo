@@ -12,7 +12,8 @@ spec:
       containers:
         ports:
           - containerPort: 8080
-            name: web
+            name: http
+            protocol: TCP
           - containerPort: 7575
             name: grpc
       　volumeMounts:
