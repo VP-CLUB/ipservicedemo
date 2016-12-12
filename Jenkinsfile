@@ -88,26 +88,4 @@ node {
   }
 }
 
-    stage 'Integration Testing'
-    mavenIntegrationTest{
-      environment = 'Testing'
-      failIfNoTests = localFailIfNoTests
-      itestPattern = localItestPattern
-    }
 
-    stage 'Rolling Upgrade Staging'
-    kubernetesApply(environment: envStage)
-
-    stage 'Approve'
-    approve{
-      room = null
-      version = canaryVersion
-      console = fabric8Console
-      environment = 'Staging'
-    }
-
-    stage 'Rolling Upgrade Production'
-    kubernetesApply(environment: envProd)
-
-  }
-}
