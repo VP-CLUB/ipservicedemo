@@ -10,11 +10,12 @@ spec:
             - key: application.properties
               path: application.properties
       containers:
-        - volumeMounts:
-            - name: config
-              mountPath: /app/config
         ports:
           - containerPort: 8080
             name: web
           - containerPort: 7575
-            name: grpc-node
+            name: grpc
+        - volumeMounts:
+            - name: config
+              mountPath: /app/config
+
