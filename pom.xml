@@ -21,7 +21,7 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <starter.hazelcast.version>1.0.1</starter.hazelcast.version>
+        <starter.hazelcast.version>1.0.2</starter.hazelcast.version>
         <starter.cors.version>1.0.1</starter.cors.version>
         <starter.mybatis.version>1.0.2</starter.mybatis.version>
         <starter.kafka.version>1.0.0</starter.kafka.version>
