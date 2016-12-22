@@ -1,8 +1,10 @@
 package cn.vpclub.ipaddress.storage.mapper;
 
 import cn.vpclub.ipaddress.api.domain.AppConfig;
+import cn.vpclub.ipaddress.storage.annotation.AppInfoEvictCache;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.cache.annotation.Cacheable;
 
 import java.util.List;
 @Mapper
@@ -15,6 +17,7 @@ public interface AppConfigMapper {
      * @param serviceType 接口类型
      * @return int
      */
+    @AppInfoEvictCache
     int deleteByPrimaryKey(@Param("appInfoId") String appInfoId,
                            @Param("serviceType") Integer serviceType);
 
@@ -24,6 +27,7 @@ public interface AppConfigMapper {
      * @param appInfoId 应用系统信息ID
      * @return int
      */
+    @AppInfoEvictCache
     int deleteByAppInfoId(@Param("appInfoId") String appInfoId);
 
     /**
@@ -32,6 +36,7 @@ public interface AppConfigMapper {
      * @param appId 应用系统编号(appId)
      * @return int
      */
+    @AppInfoEvictCache
     int deleteByAppId(@Param("appId") Long appId);
 
     /**
@@ -56,6 +61,7 @@ public interface AppConfigMapper {
      *
      * @mbggenerated
      */
+    @AppInfoEvictCache
     int insertSelective(AppConfig record);
 
     /**
@@ -92,6 +98,7 @@ public interface AppConfigMapper {
      * @param appId 应用系统编号(appId)
      * @return AppConfig
      */
+    @Cacheable(value = "appConfig", key = "'selectByAppId_' + #root.args[0]")
     AppConfig selectByAppId(@Param("appId") Long appId);
 
     /**
