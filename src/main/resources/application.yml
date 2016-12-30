@@ -58,7 +58,7 @@ mybatis:
   config-location : "classpath:mybatis-config.xml"
   #checkConfig-location : false
   mapper-locations : "classpath:mapper/*Mapper.xml"
-
+#RedHat$1
 hazelcast:
   enabled: true
   cluster: true
