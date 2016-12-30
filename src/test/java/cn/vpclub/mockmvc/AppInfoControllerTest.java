@@ -3,8 +3,11 @@ package cn.vpclub.mockmvc;
 import cn.vpclub.ipaddress.api.model.response.BaseResponse;
 import cn.vpclub.ipaddress.api.model.response.PageDataResponse;
 import cn.vpclub.common.tools.utils.JsonUtil;
+import cn.vpclub.ipaddress.service.impl.CacheManageServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
+import org.mockito.InjectMocks;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -15,6 +18,8 @@ import java.util.Map;
  */
 public class AppInfoControllerTest extends BaseMockMvcTest {
 
+    @Autowired
+    private CacheManageServiceImpl cacheManageService;
 
     /**
      * 查询应用系统信息列表
@@ -62,5 +67,27 @@ public class AppInfoControllerTest extends BaseMockMvcTest {
         BaseResponse response = JsonUtil.jsonToObject(content, BaseResponse.class);
         Assert.assertNotSame(response.getReturnCode().toString(), "1000");
     }
+    @Test
+    public void cacheTest() throws Exception {
+        String username = "13337998888";
+        Map<String, Object> paramMap = new HashMap<String, Object>();
+        paramMap.put("id",1);
+        paramMap.put("status",1);
+        paramMap.put("username",username);
+//        User user = new User();
+//        BeanUtils.copyProperties(user, request);
+//
+//        BeanUtils.copyProperties(dest, user);
+//
+//        logger.info("json is " + JsonUtil.objectToJson(user));
+//        logger.info("request json is " + dest);
+        cacheManageService.getCache(null, username);
 
+        logger.info("request " + paramMap);
+        Object resp = cacheManageService.getCache(paramMap,username);
+        logger.info("resp " + resp);
+
+        resp = cacheManageService.getCache(null, username);
+        logger.info("resp1 " + resp);
+    }
 }

@@ -1,14 +1,14 @@
-spring.application.name: ipservice
-spring.sleuth.sampler.percentage: 1.0
+
 # application properties
+##java -cp druid-1.0.26.jar com.alibaba.druid.filter.config.ConfigTools ipservice.dev
 app:
   datasource:
     name: vp_common_config
-    host: 172.16.5.23:3306
-    username: ipservicedemo
-    password: UFeMDFM7e1Tw9pPrxCVhgpuFgvbbC3WiKffh+ekbxVD5gXn4I4MyZR3HoAdP3fYmjvpr096frbhKNeL/GnwZ2Q==
+    host: 172.16.5.90:3306
+    username: ipservice
+    password: PiZsWmkZyq6yQ/8fXCs9EFAcQY0Fzf30vuv6rCzdZ4CY01Y/vl/aUFhs7KSRl5Liv0KDYVOqD934QRwWZL8EpA==
     druid:
-      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAI2zXImQtSctT1r23Qdk05CL/CnAyprxOX6bWy8wo9RQAjJ672SPcvZxnXQTom6DteYQ5D6oSFa+atEXXlp9doECAwEAAQ==
+      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIxjvuFstoL4D3aN7hySbVJqAi+412uwV3WmkIKW61+sAi7z4YJ5z9XzZAahGFcgen7SUUqztnqdzjkNmY6VVk0CAwEAAQ==
 
 spring:
   # 数据库配置
@@ -42,9 +42,14 @@ spring:
     encoding.charset: UTF-8
     encoding.enable: true
     encoding.force: true
-
   cache:
     type:  hazelcast
+
+  application:
+    name: ipservice
+  sleuth:
+    sampler:
+      percentage: 1.0
 
 mybatis:
   config-location : "classpath:mybatis-config.xml"

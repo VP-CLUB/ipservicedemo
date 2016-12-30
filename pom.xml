@@ -14,27 +14,13 @@
     <parent>
         <groupId>cn.vpclub</groupId>
         <artifactId>spring-boot-starters</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.3</version>
         <!-- lookup parent from repository -->
     </parent>
 
     <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <starter.hazelcast.version>1.0.3</starter.hazelcast.version>
-        <starter.cors.version>1.0.1</starter.cors.version>
-        <starter.mybatis.version>1.0.2</starter.mybatis.version>
-        <starter.kafka.version>1.0.0</starter.kafka.version>
-        <starter.grpc.version>1.0.0</starter.grpc.version>
-        <vp.common.version>1.0.1</vp.common.version>
-        <java.version>1.8</java.version>
         <fabric8.maven.plugin.version>3.1.71</fabric8.maven.plugin.version>
-        <exec-maven-plugin.version>1.4.0</exec-maven-plugin.version>
-        <maven-compiler-plugin.version>3.3</maven-compiler-plugin.version>
-        <maven-shade-plugin.version>2.3</maven-shade-plugin.version>
-        <maven-surefire-plugin.version>2.18.1</maven-surefire-plugin.version>
         <spring-cloud-starter-kubernetes.version>0.1.4</spring-cloud-starter-kubernetes.version>
-
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -49,8 +35,6 @@
     </dependencyManagement>
 
     <dependencies>
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -74,14 +58,12 @@
         <dependency>
             <groupId>cn.vpclub</groupId>
             <artifactId>spring-boot-starter-hazelcast</artifactId>
-            <version>${starter.hazelcast.version}</version>
         </dependency>
 
         <!--  cors -->
         <dependency>
             <groupId>cn.vpclub</groupId>
             <artifactId>spring-boot-starter-cors</artifactId>
-            <version>${starter.cors.version}</version>
         </dependency>
         <!-- jta transactional -->
         <dependency>
@@ -92,7 +74,6 @@
         <dependency>
             <groupId>cn.vpclub</groupId>
             <artifactId>spring-boot-starter-mybatis</artifactId>
-            <version>${starter.mybatis.version}</version>
         </dependency>
         <!-- mongodb dbLink -->
         <!--<dependency>
@@ -106,19 +87,16 @@
         <dependency>
             <groupId>cn.vpclub</groupId>
             <artifactId>vp-common-api</artifactId>
-            <version>${vp.common.version}</version>
         </dependency>
         <dependency>
             <groupId>cn.vpclub</groupId>
             <artifactId>vp-common-tools</artifactId>
-            <version>${vp.common.version}</version>
         </dependency>
         <!-- kafka -->
         <!-- Spring Kafka -->
         <dependency>
             <groupId>cn.vpclub</groupId>
             <artifactId>spring-boot-starter-kafka</artifactId>
-            <version>${starter.kafka.version}</version>
         </dependency>
         <!-- test -->
         <dependency>
@@ -136,13 +114,12 @@
         <dependency>
             <groupId>cn.vpclub</groupId>
             <artifactId>spring-boot-starter-grpc</artifactId>
-            <version>${starter.grpc.version}</version>
         </dependency>
         <!-- liquibase-->
-        <dependency>
-            <groupId>org.liquibase</groupId>
-            <artifactId>liquibase-core</artifactId>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>org.liquibase</groupId>-->
+            <!--<artifactId>liquibase-core</artifactId>-->
+        <!--</dependency>-->
     </dependencies>
 
     <reporting>
@@ -163,7 +140,6 @@
             <plugin>
                 <groupId>org.xolstice.maven.plugins</groupId>
                 <artifactId>protobuf-maven-plugin</artifactId>
-                <version>0.5.0</version>
             </plugin>
         </plugins>
         <extensions>
@@ -235,7 +211,6 @@
                     </plugin>
                     <plugin>
                         <artifactId>maven-compiler-plugin</artifactId>
-                        <version>${maven-compiler-plugin.version}</version>
                         <configuration>
                             <source>1.8</source>
                             <target>1.8</target>
@@ -244,7 +219,6 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-surefire-plugin</artifactId>
-                        <version>${maven-surefire-plugin.version}</version>
                         <inherited>true</inherited>
                         <configuration>
                             <argLine>-Djava.security.egd=file:/dev/./urandom</argLine>
