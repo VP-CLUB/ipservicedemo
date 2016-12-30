@@ -1,60 +1,88 @@
+
 # application properties
-spring:
+##java -cp druid-1.0.26.jar com.alibaba.druid.filter.config.ConfigTools ipservice.dev
+app:
   datasource:
-    name: testdb
-    url: jdbc:mysql://172.16.45.3:3306/vp_common_config?useUnicode=true&characterEncoding=utf-8
-    username: root
-    password: mQO7NpV1ohNjA37/xSIsNCIlVY4woR+zuAyeD3dBPpwcUX75gsZbvJftqhtpESDvItn6MUlJwrAAsi5+65fySQ==
-    # using druid data source
+    name: vp_common_config
+    host: 172.16.5.90:3306
+    username: ipservice
+    password: PiZsWmkZyq6yQ/8fXCs9EFAcQY0Fzf30vuv6rCzdZ4CY01Y/vl/aUFhs7KSRl5Liv0KDYVOqD934QRwWZL8EpA==
+    druid:
+      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIxjvuFstoL4D3aN7hySbVJqAi+412uwV3WmkIKW61+sAi7z4YJ5z9XzZAahGFcgen7SUUqztnqdzjkNmY6VVk0CAwEAAQ==
+
+spring:
+  # 数据库配置
+  datasource:
+    name: ${app.datasource.name}
+    url: jdbc:mysql://${app.datasource.host}/${app.datasource.name}?useUnicode=true&characterEncoding=utf-8&allowMultiQueries=true
+    username: ${app.datasource.username}
+    password: ${app.datasource.password}
     type: com.alibaba.druid.pool.DruidDataSource
     driver-class-name: com.mysql.jdbc.Driver
-    maxActive: 20
-    initialSize: 1
-    maxWait: 60000
-    minIdle: 1
-    timeBetweenEvictionRunsMillis: 60000
-    minEvictableIdleTimeMillis: 300000
-    validationQuery: select 'x'
-    testWhileIdle: true
-    testOnBorrow: false
-    testOnReturn: false
-    poolPreparedStatements: true
-    maxOpenPreparedStatements: 20
-    # encrypt password
-    filters: config,stat,wall,log4j
-    connectionProperties: "config.decrypt=true;druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
-    useGlobalDataSourceStat: true
-
-
-  data:
-    mongodb:
-      host: 172.16.45.3
-      port: 27017
-
-  redis:
-    database: 0
-    host: 172.16.45.3
-#    password: 'traffic.prod'
-    port: 6379
-    timeout: 3000000
-    pool:
-      max-idle: 8
-      min-idle: 0
-      max-active: 8
-      max-wait: -1
+    # 使用druid数据源
+    druid:
+      max-active: 20
+      initial-size: 1
+      max-wait: 60000
+      min-idle: 1
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 'x' FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-open-prepared-statements: 20
+      # encrypt password
+      filters: config,stat,wall,log4j
+      connection-properties: "config.decrypt=true;config.decrypt.key=${app.datasource.druid.public-key};druid.stat.mergeSql=true;druid.stat.slowSqlMillis=5000"
+      use-global-data-source-stat: true
 
   http:
     encoding.charset: UTF-8
     encoding.enable: true
     encoding.force: true
   cache:
-    type: redis
-spring.application.name: ipservice
-spring.sleuth.sampler.percentage: 1.0
-spring.sleuth.integration.enabled: false
-ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
+    type:  hazelcast
+  aop:
+    proxy-target-class: true
 
+  application:
+    name: ipservice
+
+  sleuth:
+    sampler:
+      percentage: 1.0
+
+mybatis:
+  config-location : "classpath:mybatis-config.xml"
+  #checkConfig-location : false
+  mapper-locations : "classpath:mapper/*Mapper.xml"
+
+hazelcast:
+  enabled: true
+  cluster: true
+  servers:
+    -  hazelcast.hazelcast-cluster.svc.cluster.local:5701
+#kafka
+kafka:
+  broker: kafka.kafka.svc.cluster.local:9092
+  topic: topic1
+  group: si.group
+  partions: 6
+  timeout: 15000
+
+ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
 # LOGGING
 logging:
   level:
     tk.mybatis: DEBUG
+cors:
+  mappings: /**
+  allowedOrigins:
+
+#undertow config optimize
+server:
+  undertow:
+    io-threads: 2
+    worker-threads: 100

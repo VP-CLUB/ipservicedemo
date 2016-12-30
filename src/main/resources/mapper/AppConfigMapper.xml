@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="cn.vpclub.storage.mapper.AppConfigMapper">
-    <resultMap id="BaseResultMap" type="cn.vpclub.api.domain.AppConfig">
+<mapper namespace="cn.vpclub.ipaddress.storage.mapper.AppConfigMapper">
+    <resultMap id="BaseResultMap" type="cn.vpclub.ipaddress.api.domain.AppConfig">
         <result column="app_info_id" property="appInfoId" jdbcType="VARCHAR"/>
         <result column="app_id" property="appId" jdbcType="BIGINT"/>
         <result column="service_type" property="serviceType" jdbcType="INTEGER"/>
@@ -68,7 +68,7 @@
         WHERE app_id = #{appId,jdbcType=BIGINT}
     </delete>
 
-    <insert id="insert" parameterType="cn.vpclub.api.domain.AppConfig">
+    <insert id="insert" parameterType="cn.vpclub.ipaddress.api.domain.AppConfig">
         insert into app_config
         (<include refid="Base_Column_List"/>)
         values
@@ -94,7 +94,7 @@
         </foreach>
     </insert>
 
-    <insert id="insertSelective" parameterType="cn.vpclub.api.domain.AppConfig">
+    <insert id="insertSelective" parameterType="cn.vpclub.ipaddress.api.domain.AppConfig">
         insert into app_config
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="appInfoId != null">
@@ -138,7 +138,7 @@
         </trim>
     </insert>
 
-    <update id="updateByPrimaryKey" parameterType="cn.vpclub.api.domain.AppConfig">
+    <update id="updateByPrimaryKey" parameterType="cn.vpclub.ipaddress.api.domain.AppConfig">
         update app_config
             set app_id = #{appId,jdbcType=BIGINT},
                 call_url = #{callUrl,jdbcType=VARCHAR},

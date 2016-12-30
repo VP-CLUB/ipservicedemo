@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "cn.vpclub.ipaddress.api";
+
+// The greeter service definition.
+service IpAddressOption {
+    // Sends a greeting
+    rpc getAddress (HelloRequest) returns (HelloReply) {
+    }
+}
+// The request message containing the user's name.
+message HelloRequest {
+    string name = 1;
+    string message = 2;
+}
+
+message IpAddress {
+    int64 id = 1;
+    string ipAddress = 2;
+    string message = 3;
+}
+// The response message containing the greetings
+message HelloReply {
+    IpAddress ipAddress = 1;
+}

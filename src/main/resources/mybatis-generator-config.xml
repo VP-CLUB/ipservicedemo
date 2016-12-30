@@ -6,7 +6,7 @@
 
     <!-- !!!! Driver Class Path !!!! -->
     <classPathEntry
-            location="E:/maven/repository/mysql/mysql-connector-java/5.1.37/mysql-connector-java-5.1.37.jar"/>
+            location="/home/vpclub/.m2/repository/mysql/mysql-connector-java/5.1.37/mysql-connector-java-5.1.37.jar"/>
 
     <context id="context" targetRuntime="MyBatis3">
         <commentGenerator>
@@ -24,7 +24,7 @@
         </javaTypeResolver>
 
         <!-- !!!! Model Configurations !!!! -->
-        <javaModelGenerator targetPackage="cn.vpclub.api.domain"
+        <javaModelGenerator targetPackage="cn.vpclub.ipaddress.api.domain"
                             targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED">
             <property name="enableSubPackages" value="false"/>
             <property name="trimStrings" value="true"/>
@@ -36,7 +36,7 @@
         </sqlMapGenerator>
 
         <!-- !!!! Mapper Interface Configurations !!!! -->
-        <javaClientGenerator targetPackage="cn.vpclub.storage.mapper"
+        <javaClientGenerator targetPackage="cn.vpclub.ipaddress.storage.mapper"
                              targetProject="THIS_CONFIGURATION_IS_NOT_REQUIRED"
                              type="XMLMAPPER">
             <property name="enableSubPackages" value="false"/>
@@ -48,7 +48,6 @@
                enableSelectByExample="false" enableUpdateByExample="false"/>
         <table tableName="app_config" enableCountByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" enableUpdateByExample="false"/>
-
 
     </context>
 </generatorConfiguration>

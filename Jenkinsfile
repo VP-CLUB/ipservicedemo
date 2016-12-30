@@ -17,7 +17,7 @@ def versionPrefix = ""
 try {
   versionPrefix = VERSION_PREFIX
 } catch (Throwable e) {
-  versionPrefix = "1.0"
+  versionPrefix = "1.4"
 }
 
 def canaryVersion = "${versionPrefix}.${env.BUILD_NUMBER}"
@@ -32,15 +32,15 @@ node {
   git 'http://gogs.fabric8.172.16.5.60.nip.io/gogsadmin/ipservice.git'
 
   echo 'NOTE: running pipelines for the first time will take longer as build and base docker images are pulled onto the node'
-  kubernetes.pod('buildpod').withImage('fabric8/maven-builder')
-      .withPrivileged(true)
-      .withHostPathMount('/var/run/docker.sock','/var/run/docker.sock')
-      .withEnvVar('DOCKER_CONFIG','/home/jenkins/.docker/')
-      .withEnvVar('KUBERNETES_MASTER','kubernetes.default')
-      .withSecret('jenkins-docker-cfg','/home/jenkins/.docker')
-      .withSecret('jenkins-maven-settings','/root/.m2')
-      .withServiceAccount('jenkins')
-      .inside {
+  kubernetes.pod('buildpod').withImage('vpclub/maven-builder:1.0.9')
+          .withPrivileged(true)
+          .withHostPathMount('/var/run/docker.sock', '/var/run/docker.sock')
+          .withEnvVar('DOCKER_CONFIG', '/home/jenkins/.docker/')
+          .withEnvVar('KUBERNETES_MASTER', 'kubernetes.default')
+          .withSecret('jenkins-docker-cfg', '/home/jenkins/.docker')
+          .withSecret('jenkins-maven-settings', '/root/.m2')
+          .withServiceAccount('jenkins')
+          .inside {
 
     stage 'Canary Release'
     mavenCanaryRelease{

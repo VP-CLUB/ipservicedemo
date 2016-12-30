@@ -1,0 +1,34 @@
+# application properties
+#dev mode disable zipkin must place here
+spring:
+  cloud:
+    kubernetes:
+      zipkin:
+        discovery:
+          enabled: false
+app:
+  datasource:
+    name: vp_common_config
+    host: 172.16.5.90:3306
+    username: ipservice
+    password: PiZsWmkZyq6yQ/8fXCs9EFAcQY0Fzf30vuv6rCzdZ4CY01Y/vl/aUFhs7KSRl5Liv0KDYVOqD934QRwWZL8EpA==
+    druid:
+      public-key: MFwwDQYJKoZIhvcNAQEBBQADSwAwSAJBAIxjvuFstoL4D3aN7hySbVJqAi+412uwV3WmkIKW61+sAi7z4YJ5z9XzZAahGFcgen7SUUqztnqdzjkNmY6VVk0CAwEAAQ==
+
+hazelcast:
+  enabled: true
+  cluster: true
+  servers:
+    -  172.16.5.90:5701
+
+ipservice.message: 'heheda,spring cloud kubernetes from here !! 1110'
+
+#kafka
+kafka:
+  broker: 172.16.5.90:9092
+  topic: topic1
+  group: si.group
+  partions: 6
+  timeout: 15000
+
+
