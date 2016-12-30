@@ -1,5 +1,0 @@
-projectKey=ipservicedemo
-serverUrl=http://172.16.45.3:9000
-dashboardUrl=http://172.16.45.3:9000/dashboard/index/ipservicedemo
-ceTaskId=AViGB88z6mCJTrbu0TSA
-ceTaskUrl=http://172.16.45.3:9000/api/ce/task?id=AViGB88z6mCJTrbu0TSA

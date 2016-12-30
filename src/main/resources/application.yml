@@ -44,9 +44,12 @@ spring:
     encoding.force: true
   cache:
     type:  hazelcast
+  aop:
+    proxy-target-class: true
 
   application:
     name: ipservice
+
   sleuth:
     sampler:
       percentage: 1.0
