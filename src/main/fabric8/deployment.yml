@@ -1,5 +1,5 @@
 spec:
-  replicas: 3
+  replicas: 1
   template:
     spec:
       volumes:
@@ -7,17 +7,30 @@ spec:
           configMap:
             name: ${project.artifactId}
             items:
-            - key: application.properties
-              path: application.properties
+            - key: application.yml
+              path: application.yml
       containers:
-        - name: ${project.artifactId}
-          ports:
-            - containerPort: 8080
-              name: http
-              protocol: TCP
-            - containerPort: 7575
-              name: grpc
-          volumeMounts:
-            - name: config
-              mountPath: /app/config
+      - volumeMounts:
+          - name: config
+            mountPath: /app/config
+        livenessProbe:
+          httpGet:
+            path: /demo/health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 200
+          timeoutSeconds: 10
+        readinessProbe:
+          httpGet:
+            path: /demo/health
+            port: 8080
+            scheme: HTTP
+          initialDelaySeconds: 200
+          timeoutSeconds: 10
+        ports:
+          - containerPort: 8080
+            name: http
+            protocol: TCP
+          - containerPort: 7575
+            name: grpc
 
